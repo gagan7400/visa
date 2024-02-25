@@ -28,7 +28,7 @@ class Footer extends Component {
                       <div className="footer-logo logo"  >
                         <img
                           width="auto"
-                          src="./Aboutimage/logo.png"
+                          src="./Aboutimage/footerlogo.png"
                           alt="logo not found"
 
                         />
