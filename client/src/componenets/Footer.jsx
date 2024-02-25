@@ -25,11 +25,12 @@ class Footer extends Component {
                 <div className="col-lg-5">
                   <div className="footer-widget">
                     <div className="footer-about">
-                      <div className="footer-logo logo">
+                      <div className="footer-logo logo"  >
                         <img
-                          src="./Aboutimage/logofooter.png"
-                          alt=""
-                          width={"280px"}
+                          width="auto"
+                          src="./Aboutimage/logo.png"
+                          alt="logo not found"
+
                         />
                       </div>
                       <div className="footer-text mt-4 w-75">
@@ -111,16 +112,16 @@ class Footer extends Component {
                         >
                           Contact Us
                         </NavLink>
-                        
+
                       </p>
                       <p>
-                      <NavLink
+                        <NavLink
                           to="/adminlogin"
                           className="text-reset text-decoration-none"
                         >
                           Admin
                         </NavLink>
-                        
+
                       </p>
                     </ul>
                   </div>
