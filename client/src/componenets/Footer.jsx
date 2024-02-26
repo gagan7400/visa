@@ -138,7 +138,7 @@ class Footer extends Component {
                         GLS Avenue 51 Sec-92 , Gurugram , Haryana
                       </div>
                       <div className="pb-4">
-                       Sun-Mon (24 x 7) Open
+                      (24 x 7) Open
                       </div>
                       <div className="pb-4">
                         {" "}
