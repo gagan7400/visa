@@ -25,12 +25,11 @@ class Footer extends Component {
                 <div className="col-lg-5">
                   <div className="footer-widget">
                     <div className="footer-about">
-                      <div className="footer-logo logo"  >
+                      <div className="footer-logo logo">
                         <img
-                          width="auto"
-                          src="./Aboutimage/footerlogo.png"
-                          alt="logo not found"
-
+                          src="./Aboutimage/logofooter.png"
+                          alt=""
+                          width={"280px"}
                         />
                       </div>
                       <div className="footer-text mt-4 w-75">
@@ -136,17 +135,22 @@ class Footer extends Component {
                     >
 
                       <div className="pb-4">
-                        GLs Avenue 51 sec-92 , gurugram , haryana
+                        GLS Avenue 51 Sec-92 , Gurugram , Haryana
                       </div>
                       <div className="pb-4">
-                        Sun - Fri: 8.00am - 6.00pm
+                       Sun-Mon (24 x 7) Open
                       </div>
                       <div className="pb-4">
                         {" "}
-                        +91-9720291267
+                        <a href="tel:87662 47483" style={{ textDecoration: "none", fontSize: "16px", color: "white" }}>
+                          (+91)-87662 47483
+                        </a>
+
                       </div>
                       <div>
-                        aplusadventureholidays@gmail.com
+                        <a href="mailto:aplusadventureholidays@gmail.com" style={{ textDecoration: "none", fontSize: "16px", color: "white" }}>
+                          aplusadventureholidays@gmail.com
+                        </a>
                       </div>
 
                     </ul>

@@ -17,7 +17,7 @@ const Navbar = () => {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span className="text-white"></span><i className="bi bi-list text-warning"></i><span className='ps-2 text-white' style={{ fontWeight: '600' }}>Menu</span>
+              <span className="text-white  "></span><i className="bi bi-list text-warning"></i><span className='ps-2 text-white' style={{ fontWeight: '600' }}>Menu</span>
             </div>
             <div className="collapse navbar-collapse navbar_droptown_bg" id="navbarSupportedContent" style={{ zIndex: '4' }}>
               <ul className="navbar-nav align-content-center   UL_nav">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
- 
+
 const LoginAdmin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -9,12 +9,12 @@ const LoginAdmin = () => {
     const [error, setError] = useState(false);
 
     if (Cookies.get("token") === "true") {
-        return <Navigate to='/admindashboard' replace={true} />
+         return <Navigate to='/admindashboard' replace={true} />
     }
     const handleLogin = (e) => {
         e.preventDefault();
 
-        if (username === 'admin@gmail.com' && password === 'Aplus@9000' && secretKey === "XYZ123") {
+        if (username === 'admin@gmail.com' && password === 'Aplus@9745' && secretKey === "XYZ123") {
             Cookies.set('token', "true", { expires: 2 });
             setUsername("");
             setPassword("");
@@ -28,13 +28,13 @@ const LoginAdmin = () => {
 
 
     return (
-        <div className='w-50 h-auto bg-info border p-5 mx-auto mb-5'>
+        <div id="admincontainer" className='w-50 h-auto bg-info border p-5 mx-auto mb-5'>
             <h1>Admin Login</h1>
             {error ? <div className="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>Invliad Credentials </strong>  Please correct and try again ..
                 <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick={() => setError(false)}></button>
             </div> : ""}
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleLogin} class="admin-form">
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1" className='m-2'>Email address</label>
                     <input type="email" className="form-control" value={username} onChange={(e) => { setUsername(e.target.value) }} aria-describedby="emailHelp" placeholder="Enter email" />

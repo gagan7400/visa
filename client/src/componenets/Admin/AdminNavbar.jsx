@@ -33,13 +33,7 @@ const AdminNavbar = () => {
                                     </a>
 
                                 </NavLink>
-                                <div className='fs-3 align-content-center ' style={{ fontWeight: "100", color: "#081a32" }}>|</div>
-                                <NavLink to='/about' className="dropdown">
-                                    <a to='/irish_pr_visa' className="dropbtn" style={{ fontWeight: 600 }}>
-                                        ABOUT US
-                                    </a>
 
-                                </NavLink>
 
                                 <div className='fs-3 align-content-center ' style={{ fontWeight: "100", color: "#081a32" }}>|</div>
 

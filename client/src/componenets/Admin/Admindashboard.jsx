@@ -1,23 +1,34 @@
 import React, { useEffect, useState } from 'react'
-import AdminNavbar from './AdminNavbar'
+import AdminNavbar from './AdminNavbar';
+import { collection, getDocs } from "firebase/firestore";
+import { db } from '../../firebaseconfig/firebase';
 export default function Admindashboard() {
+
   const [data, setData] = useState([])
   useEffect(() => {
-    fetch("http://localhost:4567/api/contact").then((result) => result.json()).then((res) => {
-      setData(res.contacts.reverse())
-    }).catch((err) => {
-      console.log(err)
-    })
+    getdata()
+
   }, [])
+  let getdata = async () => {
+    try {
+      let collect = collection(db, "contacts");
+      let docref = await getDocs(collect)
+      let a = [];
+      await docref.forEach((res) => { a = [...a, { id: res.id, data: res.data() }] });
+      setData(a);
+      console.log(a)
+    }
+    catch (err) { console.log(err) }
+  }
   return (
     <div>
-      <AdminNavbar/>
+      <AdminNavbar />
       <h1 className=' fs-1 text-white bg-info px-3 py-2  w-75 mx-auto' > Admin Dashboard </h1>
       <div className="contact-data w-75 mx-auto" style={{ height: "100vh", overflow: "auto" }}>
         <table className="table p-1 m-2 border bg-info text-white  mx-auto">
           <thead>
             <tr>
-              <th scope="col" className='bg-secondary border  text-white' >#</th>
+              <th scope="col" className='bg-secondary border  text-white' >S.NO</th>
               <th scope="col" className='bg-primary  border text-white' >Date </th>
               <th scope="col" className='bg-primary  border text-white' >Name</th>
               <th scope="col" className='bg-primary  border text-white' >Email Address</th>
@@ -25,6 +36,7 @@ export default function Admindashboard() {
               <th scope="col" className='bg-primary border text-white' >Number</th>
               <th scope="col" className='bg-primary border text-white' >WhatsupNumber</th>
               <th scope="col" className='bg-primary border text-white' >Visa Category</th>
+          
             </tr>
           </thead>
           <tbody>
@@ -32,13 +44,13 @@ export default function Admindashboard() {
               return (
                 <tr key={i}>
                   <th scope="col" className='bg-secondary border text-white'>{i + 1}</th>
-                  <th scope="col" className='bg-info border text-white'>{v.date}</th>
-                  <th scope="col" className='bg-info border text-white'>{v.name}</th>
-                  <th scope="col" className='bg-info border text-white'>{v.email} </th>
-                  <th scope="col" className='bg-info border text-white'>{v.country}</th>
-                  <th scope="col" className='bg-info border text-white'>{v.countrycode} {v.number}</th>
-                  <th scope="col" className='bg-info border text-white'> {v.whatsupcountrycode} {v.whatsupnumber}</th>
-                  <th scope="col" className='bg-info border text-white'>{v.visacountry}</th>
+                  <th scope="col" className='bg-info border text-white'>{v.data.date}</th>
+                  <th scope="col" className='bg-info border text-white'>{v.data.name}</th>
+                  <th scope="col" className='bg-info border text-white'>{v.data.email} </th>
+                  <th scope="col" className='bg-info border text-white'>{v.data.country}</th>
+                  <th scope="col" className='bg-info border text-white'>{v.data.countrycode} {v.data.number}</th>
+                  <th scope="col" className='bg-info border text-white'>   {v.data.whatsupnumber}</th>
+                  <th scope="col" className='bg-info border text-white'>{v.data.visacountry}</th>
                 </tr>
               )
             })}

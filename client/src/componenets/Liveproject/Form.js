@@ -8,7 +8,7 @@ function Form() {
           <img src="./Aboutimage/team.jpg" className="team-image" alt="Team_image" />
           <div className="background-cotainer-text text-light text-center">
             <p> Leading Visa & Immigration Consultancy for All Countries visas</p>
-            <div>
+            <div className="background-cotainer-text-in">
               Get your visa from most trusted Visa & Immigration consultant.
               Dedicated and <br /> experienced team member working hard to reach
               your dream destination.

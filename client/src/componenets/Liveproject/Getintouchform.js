@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-
+import { collection, addDoc } from "firebase/firestore";
+import { db } from '../../firebaseconfig/firebase';
 function Getintouchform() {
   const [show, setShow] = useState(false)
   const [name, setName] = useState("");
@@ -17,20 +18,21 @@ function Getintouchform() {
     e.preventDefault()
     let btn = document.getElementById("model");
     try {
-      await fetch("http://localhost:4567/api/contact", {
-        method: "POST",
-        body: JSON.stringify({ name,date:new Date().toLocaleString(), email, country, countrycode, visacountry, whatsupcountrycode, whatsupnumber, message, number }),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }).then((e) => e.json()).then((r) => {
+      const docRef = await addDoc(collection(db, "contacts"), {
+        name, date: new Date().toLocaleString(), email, country, countrycode, visacountry , whatsupnumber, message, number
+      }).then(() => {
         setError({ error: false, msg: "Thank you for contacting us " });
         btn.click()
-      })
-    } catch (error) {
+      }).catch((err) => {
+        console.log(err)
+        setError({ error: true, msg: "Please Provide Valid Details" });
+        btn.click()
+      });
+
+    } catch (err) {
+      console.log(err)
       setError({ error: true, msg: "Please Provide Valid Details" });
       btn.click()
-
     }
   }
   const showw = (e) => {
@@ -400,7 +402,7 @@ function Getintouchform() {
                   <option value="Andorra">AND (+376)</option>
                   <option value="Afghanistan">AFG (+93)</option>
                   <option value="Antigua and Barbuda">ATG (+1)</option>
-                  <option value='?"Anguilla"'>AIA (+1)</option>
+                  <option value="Anguilla">AIA (+1)</option>
                   <option value="Albania">ALB (+355)</option>
                   <option value="Armenia">ARM (+374)</option>
                   <option value="Netherlands Antilles">ANT (+599)</option>

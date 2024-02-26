@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import { collection, addDoc } from "firebase/firestore";
+import { db } from '../../firebaseconfig/firebase';
 function Loginform() {
   const [show, setShow] = useState(false);
   const [name, setName] = useState("");
@@ -16,14 +17,9 @@ function Loginform() {
   let submithandler = async (e) => {
     e.preventDefault()
     try {
-      await fetch("http://localhost:4567/api/contact", {
-        method: "POST",
-        body: JSON.stringify({ name,date:new Date().toLocaleString(), email, country, countrycode, visacountry, whatsupcountrycode, whatsupnumber, message, number }),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }).then((e) => e.json()).then((r) => {
-        e.target.reset();
+      const docRef = await addDoc(collection(db, "contacts"), {
+        name, date: new Date().toLocaleString(), email, country, countrycode, visacountry, whatsupnumber, message, number
+      }).then(() => {
         alert("Thank you for contacting us");
         setName("");
         setEmail("")
@@ -34,9 +30,10 @@ function Loginform() {
         setWhatsupnumber("");
         setVisaCountry("");
         setMessage("");
-
-      })
-    } catch (error) {
+      }).catch((err) => {
+        alert("Please Provide Valid Details")
+      });
+    } catch (err) {
       alert("Please Provide Valid Details")
     }
   }

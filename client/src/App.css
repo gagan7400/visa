@@ -6,6 +6,21 @@
   margin: 0;
 }
 
+/* admin css start*/
+
+.admin-drop {
+  font-size: large;
+  padding: 5px 10px;
+}
+
+@media only screen and (min-width:200px) and (max-width:500px) {
+  #admincontainer {
+    width: 90% !important;
+  }
+}
+
+
+/* admin css end */
 .navbar {
   background-color: #00255c;
   z-index: 5;
@@ -27,10 +42,7 @@
   background: -moz-linear-gradient(64deg, #43c4ff 0%, #1c88df 80%);
 }
 
-.admin-drop {
-  font-size: large;
-  padding: 5px 10px;
-}
+
 
 .header-news-child2 a {
   color: inherit;
@@ -80,6 +92,17 @@
 
   .UL_nav {
     margin-bottom: 10%;
+  }
+}
+
+@media screen and (min-width: 960px) and (max-width: 992px) {
+  .navbar {
+    text-align: left !important;
+  }
+
+  .navbar_section {
+    justify-content: start !important;
+    padding-left: 100px !important;
   }
 }
 
@@ -1093,7 +1116,7 @@
     width: auto;
     position: absolute;
     top: 0;
-    padding: 20px;
+    padding: 5px;
   }
 
   .get-in-touch-2 p {
@@ -1869,6 +1892,43 @@
 }
 
 /* media query For mobile  */
+@media screen and (min-width: 200px) and (max-width:320px) {
+  .custom-icon-wrapper {
+    color: rgb(255, 255, 255);
+    background: rgb(34, 130, 255);
+    border-radius: 50%;
+    border: 5px solid rgb(255, 255, 255);
+    padding: 10px;
+    width: 60px;
+    height: 60px;
+    font-size: 27px;
+    position: relative;
+    top: -57px;
+    left: 180px;
+    transition: all 0.1s;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 350px) and (max-width: 370px) {
+  .custom-icon-wrapper {
+    left: 185px !important;
+  }
+}
+
+@media screen and (min-width: 330px) and (max-width:350px) {
+  .custom-icon-wrapper {
+    left: 175px !important;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 330px) {
+  .custom-icon-wrapper {
+    left: 165px !important;
+  }
+}
+
 @media screen and (min-width: 320px) and (max-width: 480px) {
   .main-card-services {
     margin-top: -2rem;
@@ -1881,6 +1941,24 @@
   .text-services {
     width: 375px;
     font-size: 10px;
+  }
+
+  .custom-icon-wrapper {
+    color: rgb(255, 255, 255);
+    background: rgb(34, 130, 255);
+    border-radius: 50%;
+    border: 5px solid rgb(255, 255, 255);
+    padding: 10px;
+    width: 60px;
+    height: 60px;
+    font-size: 27px;
+    position: relative;
+    top: -57px;
+    left: 200px;
+    /* right: 20px; */
+    transition: all 0.1s;
+    display: flex;
+    justify-content: center;
   }
 
   .text-content-services p {
@@ -2358,7 +2436,7 @@
 }
 
 /* media query For tablet   */
-@media screen and (min-width: 480px) and (max-width: 768px) {
+@media screen and (min-width: 480px) and (max-width: 767px) {
   .About-Us {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -2466,7 +2544,47 @@
 }
 
 /* media query For labtop   */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 769px) {
+  .About-content-container {
+    display: flex !important;
+    justify-content: space-between;
+    margin: 20px;
+    height: 839px;
+  }
+
+  .About-content-text {
+    width: 48%;
+    margin-left: 15px;
+    font-weight: 600;
+    text-align: justify;
+  }
+
+  .AboutUS-btn {
+
+    position: absolute;
+    margin-top: 740px;
+    margin-left: 27px;
+  }
+
+  .About-content-text h2 {
+    font-size: 38px;
+    margin-bottom: 13px;
+    color: rgb(23, 102, 205);
+  }
+
+  .About-icon {
+    left: -83%;
+    margin-top: 470px;
+    font-size: 24px;
+  }
+
+  .About-icon img {
+    width: 50px;
+    margin-left: 19px;
+  }
+}
+
+@media screen and (min-width: 770px) and (max-width: 1024px) {
   .About-Us {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -2558,9 +2676,9 @@
   .about-btn-2 {
     padding: 12px 30px;
     border-radius: 3px;
-    background-color: transparent;
-    color: rgb(48, 29, 68);
-    border: 1px solid black;
+    background: linear-gradient(to left, blue, rgb(59, 59, 139));
+    color: white;
+
     font-weight: 600;
     font-size: 24px;
     font-size: 23px;
